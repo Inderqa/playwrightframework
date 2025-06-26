@@ -58,6 +58,8 @@ class flipkartHome:
         mobile_names = {}
         for row in rows:
             mobile_name = row.inner_text()
+            row.scroll_into_view_if_needed()
+            expect(row).to_be_visible(timeout=5000)
             price_locator = row.locator("xpath=/child::div[2]//div[@class='Nx9bqj _4b5DiR']")
             price = price_locator.text_content().strip()
             mobile_names[mobile_name] = price
@@ -68,8 +70,6 @@ class flipkartHome:
         for key,values in ordered_items.items():
             sorted_lst.append([key,values])
         print(sorted_lst)
-        import pdb
-        pdb.set_trace()
     ## >>>> Using Filters <<<<<<< ##
     # def flipkart_get_mobile_price_with_mobile_name(self, desired_phone):
     #     expect(self.page.locator(self.login_popup)).to_be_hidden(timeout=30000)
