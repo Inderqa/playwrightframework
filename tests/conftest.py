@@ -4,9 +4,9 @@ import pytest
 from requests import session
 
 
-@pytest.fixture(scope="session")
-def user_credentialss(request):
-    return request.param
+# @pytest.fixture(scope="session")
+# def user_credentialss(request):
+#     return request.param
 
 @pytest.fixture(scope="function")
 def start_browser(playwright):
