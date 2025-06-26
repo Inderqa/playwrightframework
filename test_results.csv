@@ -1,0 +1,9 @@
+TestCaseID,TestName,Module,Priority,Status,ExecutedBy
+TC001,Login with valid credentials,Auth,High,Passed,Alice
+TC002,Login with invalid password,Auth,Medium,Failed,Bob
+TC003,Signup with existing email,Auth,Medium,Passed,Charlie
+TC004,Add product to cart,Cart,High,Passed,Alice
+TC005,Remove product from cart,Cart,Low,Skipped,Bob
+TC006,Search product by name,Search,Medium,Failed,Charlie
+TC007,Apply discount coupon,Checkout,High,Passed,Alice
+TC008,Payment gateway timeout,Checkout,Critical,Failed,Bob

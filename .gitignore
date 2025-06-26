@@ -1,0 +1,9 @@
+.vscode/
+.env
+__pycache__/
+*.pyc
+allure-results/
+allure-report/
+trace.zip
+*.log
+test_data/creds.json

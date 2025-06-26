@@ -2,3 +2,7 @@ pytest
 pytest-playwright
 pytest-html
 playwright
+allure-pytest
+openpyxl
+pandas
+mysql-connector-python
