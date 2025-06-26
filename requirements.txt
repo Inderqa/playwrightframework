@@ -4,5 +4,6 @@ pytest-html
 playwright
 allure-pytest
 openpyxl
-pandas
+responses
+requests
 mysql-connector-python
