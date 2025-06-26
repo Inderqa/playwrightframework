@@ -1,5 +1,6 @@
 pytest
 pytest-playwright
+playwright install
 pytest-html
 playwright
 allure-pytest
