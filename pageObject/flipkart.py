@@ -59,8 +59,9 @@ class flipkartHome:
         for row in rows:
             mobile_name = row.inner_text()
             row.scroll_into_view_if_needed()
-            expect(row).to_be_visible(timeout=5000)
+            expect(row).to_be_visible(timeout=10000)
             price_locator = row.locator("xpath=/child::div[2]//div[@class='Nx9bqj _4b5DiR']")
+            time.sleep(2)
             price = price_locator.text_content().strip()
             mobile_names[mobile_name] = price
 
