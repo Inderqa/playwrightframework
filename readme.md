@@ -54,7 +54,7 @@ Used for SQL files, mock data, and setup scripts if DB interaction is part of th
 | `pytest.ini`      | Central config for test markers, logs, and Pytest behavior             |
 | `requirements.txt`| Contains all required Python libraries and versions                    |
 | `jenkins.groovy`  | Jenkins scripted pipeline for CI integration                           |
-| `test_results.csv`| Optional – stores test results or logs                                 |
+| `test_results.csv`| Optional – Used for test data                   |
 
 ---
 
