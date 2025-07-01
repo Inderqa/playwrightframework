@@ -101,6 +101,6 @@ npx playwright show-trace trace.zip
 	•	Test Runner: Pytest
 	•	Design Pattern: Page Object Model (POM)
 	•	CI Tools: GitHub Actions, Jenkins
-	•	Reporting: Pytest HTML (optional)
+	•	Reporting: Pytest HTML, Allure
 
 
