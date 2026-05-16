@@ -10,7 +10,7 @@ from requests import session
 
 @pytest.fixture(scope="function")
 def start_browser(playwright):
-    browser=playwright.chromium.launch(headless=False,args=["--disable-notifications"])
+    browser=playwright.chromium.launch(headless=True,args=["--disable-notifications"])
     context=browser.new_context()
     page=context.new_page()
     yield page
