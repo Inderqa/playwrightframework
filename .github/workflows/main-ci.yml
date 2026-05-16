@@ -1,20 +1,22 @@
-name: Playwright Python Tests
+name: Playwright Allure Report
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
-  playwright-tests:
+  tests:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Setup Python
@@ -22,17 +24,12 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Prepare Workspace
-        run: |
-          echo "Current workspace path: $GITHUB_WORKSPACE"
-          ls -la
-
-      - name: Setup Python Environment
+      - name: Install Dependencies
         run: |
           python -m venv venv
           source venv/bin/activate
 
-          python -m pip install --upgrade pip
+          pip install --upgrade pip
           pip install -r requirements.txt
 
           playwright install
@@ -41,26 +38,20 @@ jobs:
       - name: Run Tests
         run: |
           source venv/bin/activate
-
           pytest --alluredir=allure-results
 
-      - name: Generate Allure Report
-        if: always()
+      - name: Install Allure
         run: |
-          npm install -g allure-commandline --save-dev
+          sudo npm install -g allure-commandline --save-dev
 
+      - name: Generate Allure Report
+        run: |
           allure generate allure-results -o allure-report --clean
 
-      - name: Upload Allure Results
+      - name: Deploy to GitHub Pages
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          name: allure-results
-          path: allure-results
-
-      - name: Upload Allure Report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-report
-          path: allure-report
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./allure-report
