@@ -6,7 +6,7 @@
 
 # from utilities.base_class_utils import BaseClass
 
-@pytest.mark.usefixtures("start_browser_with_tracing")
+# @pytest.mark.usefixtures("start_browser_with_tracing")
 # def test_flipkart_aut(start_browser_with_tracing):
 #     page = start_browser_with_tracing
 #     base = BaseClass(page)
